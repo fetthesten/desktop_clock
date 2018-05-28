@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Configuration;
+using System.Collections.Generic;
 
 using System.Threading;
 
@@ -12,19 +13,22 @@ namespace desktop_clock
     /// </summary>
     public partial class MainWindow : Window
     {
+        const string STR_NULL = "";
         private System.Timers.Timer clockUpdateTimer;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            var pos = LoadSettings();
-            if (pos != String.Empty)
-            {
-                string[] coords = pos.Split(',');
-                var windowPos = new Point(int.Parse(coords[0]), int.Parse(coords[1]));
-                this.Left = windowPos.X;
-                this.Top = windowPos.Y;
-            }
+            LoadSettings();
+
+            //if (pos != STR_NULL)
+            //{
+            //    string[] coords = pos.Split(',');
+            //    var windowPos = new Point(int.Parse(coords[0]), int.Parse(coords[1]));
+            //    this.Left = windowPos.X;
+            //    this.Top = windowPos.Y;
+            //}
 
             clockUpdateTimer = new System.Timers.Timer(500);
             clockUpdateTimer.Elapsed += UpdateClock;
@@ -36,7 +40,10 @@ namespace desktop_clock
 
         private void ShowSettingsBox(object sender, RoutedEventArgs e)
         {
-            
+            SettingsBox settingsBox = new SettingsBox(this);
+            settingsBox.Left = this.Left;
+            settingsBox.Top = this.Top;
+            settingsBox.Show();
         }
 
         private void ShowAboutBox(object sender, RoutedEventArgs e)
@@ -52,19 +59,33 @@ namespace desktop_clock
             Application.Current.Shutdown();
         }
 
-        private string LoadSettings()
+        private void LoadSettings()
         {
-            var result = String.Empty;
-            try
+            var appSettings = ConfigurationManager.AppSettings;
+            //foreach (var key in appSettings)
+            //{
+            //    switch (key)
+            //    {
+            //        case ""
+            //    }
+            //}
+        }
+
+        public void SaveSettings(Dictionary<string,string> settings)
+        {
+            var cfgFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var appSettings = cfgFile.AppSettings.Settings;
+
+            foreach (var key in settings.Keys)
             {
-                var appSettings = ConfigurationManager.AppSettings;
-                result = appSettings["window_pos"] ?? String.Empty;
+                if (appSettings[key] == null)
+                    appSettings.Add(key, settings[key]);
+                else
+                    appSettings[key].Value = settings[key];
             }
-            catch (ConfigurationErrorsException)
-            {
-                Console.WriteLine("error reading appsettings");
-            }
-            return result;
+
+            cfgFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(cfgFile.AppSettings.SectionInformation.Name);
         }
 
         private void SaveSettings(object sender, MouseButtonEventArgs e)
