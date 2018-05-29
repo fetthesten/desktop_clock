@@ -10,7 +10,7 @@
         <Label x:Name="label_title" Content="Desktop Clock v1.0" HorizontalAlignment="Center" Height="61" Margin="10,21,10,145" VerticalAlignment="Center" Width="230" IsEnabled="False" FontSize="22" RenderTransformOrigin="0.495,-0.439" Grid.ColumnSpan="2"/>
         <Label x:Name="label_info" Content="the coolest desktop clock" HorizontalAlignment="Center" Height="28" Margin="10,82,10,117" VerticalAlignment="Center" Width="230" IsEnabled="False" FontSize="14" RenderTransformOrigin="0.495,-0.439" Grid.ColumnSpan="2"/>
         <Label x:Name="label_author" Content="by Tryggve Sollid, 2018" HorizontalAlignment="Center" Height="28" Margin="10,110,10,89" VerticalAlignment="Center" Width="230" IsEnabled="False" FontSize="14" RenderTransformOrigin="0.495,-0.439" Grid.ColumnSpan="2"/>
-        <Button x:Name="button_quit" Content="Sweet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="0,148,0,0" Height="79" FontSize="36" Background="#FF72C77E" Foreground="White"/>
+        <Button x:Name="button_quit" Content="Sweet" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="0,148,0,0" Height="69" FontSize="36" Background="#FF72C77E" Foreground="White"/>
 
     </Grid>
 </Window>

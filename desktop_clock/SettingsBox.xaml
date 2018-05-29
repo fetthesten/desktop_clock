@@ -5,19 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:desktop_clock"
         mc:Ignorable="d"
-        Title="Settings" Height="400" Width="300">
+        Title="Settings" Height="451.175" Width="300">
     <Grid>
-        <ListBox x:Name="list_fonts" HorizontalAlignment="Left" Height="83" Margin="10,37,0,0" VerticalAlignment="Top" Width="272">
+        <ListBox x:Name="list_fonts" HorizontalAlignment="Left" Height="157" Margin="10,37,0,0" VerticalAlignment="Top" Width="272">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding FontName}" FontSize="14" FontFamily="{Binding FontName}"/>
+                    <Label FontSize="14" Content="{Binding name}" FontFamily="{Binding name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Label Content="Font" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="b_boldtext" Content="B" HorizontalAlignment="Left" Margin="213,136,0,0" VerticalAlignment="Top" Width="32" Background="#FF4EE88D" BorderBrush="{x:Null}" Foreground="White" Height="32" MinWidth="32" MinHeight="32" FontWeight="Bold" FontSize="20"/>
-        <Button x:Name="b_italictext" Content="i" HorizontalAlignment="Left" Margin="250,136,0,0" VerticalAlignment="Top" Width="32" Background="#FF4EE88D" BorderBrush="{x:Null}" Foreground="White" Height="32" MinWidth="32" MinHeight="32" FontSize="20" FontStyle="Italic"/>
-        <Label x:Name="l_textsizelabel" Content="Size" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="slider_textsize" HorizontalAlignment="Left" Margin="63,144,0,0" VerticalAlignment="Top" Width="145" Minimum="12" Maximum="128" Value="24"/>
+        <Label x:Name="l_textsizelabel" Content="Size" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider_textsize" HorizontalAlignment="Left" Margin="62,207,0,0" VerticalAlignment="Top" Width="104" Minimum="12" Maximum="128" Value="24"/>
+        <CheckBox x:Name="check_bold" Content="Bold" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="check_shadow" Content="Shadow" HorizontalAlignment="Left" Margin="220,210,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button_saveSettings" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Margin="0,341,0,0" Height="79" FontSize="36" Background="#FF72C77E" Foreground="White"/>
+        
+        <Label x:Name="label" Content="Color" HorizontalAlignment="Left" Margin="65,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.301,-0.336"/>
+        <Canvas x:Name="img_colorpreview" HorizontalAlignment="Left" Height="50" Margin="10,235,0,0" VerticalAlignment="Top" Width="50" Background="Black"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="10,235,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="label1" Content="Separator" HorizontalAlignment="Left" Margin="220,230,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="combo_separator" HorizontalAlignment="Left" Margin="220,261,0,0" VerticalAlignment="Top" Width="61" IsReadOnly="True">
+            <ListBoxItem Content="."/>
+            <ListBoxItem Content=":"/>
+            <ListBoxItem Content="•"/>
+        </ComboBox>
+        <Slider x:Name="slider_red" HorizontalAlignment="Left" Margin="107,261,0,0" VerticalAlignment="Top" Width="59" Maximum="255"/>
+        <TextBox x:Name="tx_red" HorizontalAlignment="Left" Height="23" Margin="171,261,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="44"/>
+        <Label x:Name="label2" Content="Red" HorizontalAlignment="Left" Margin="69,258,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider_green" HorizontalAlignment="Left" Margin="107,287,0,0" VerticalAlignment="Top" Width="59" Maximum="255"/>
+        <TextBox x:Name="tx_green" HorizontalAlignment="Left" Height="23" Margin="171,287,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="44"/>
+        <Label x:Name="label2_Copy" Content="Green" HorizontalAlignment="Left" Margin="69,284,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider_blue" HorizontalAlignment="Left" Margin="107,313,0,0" VerticalAlignment="Top" Width="59" Maximum="255"/>
+        <TextBox x:Name="tx_blue" HorizontalAlignment="Left" Height="23" Margin="171,313,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="44"/>
+        <Label x:Name="label2_Copy1" Content="Blue" HorizontalAlignment="Left" Margin="69,310,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
