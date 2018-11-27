@@ -13,6 +13,8 @@ namespace desktop_clock
     /// </summary>
     public partial class MainWindow : Window
     {
+        enum Snap_Pos { Top_Left, Top_Center, Top_Right, Center_Right, Bottom_Right, Bottom_Center, Bottom_Left, Center_Left };
+
         const string STR_NULL = "";
 
         private System.Timers.Timer clockUpdateTimer;
@@ -80,10 +82,46 @@ namespace desktop_clock
 
             this.Left = Properties.Settings.Default.window_pos.X;
             this.Top = Properties.Settings.Default.window_pos.Y;
+
+            this.Width = l_ClockDisplay.ActualWidth;
+            this.Height = l_ClockDisplay.ActualHeight;
         }
 
         private void SetWindowPos(object sender, MouseButtonEventArgs e)
         {
+            if (Properties.Settings.Default.move_snap)
+            {   
+                var desktopWidth = SystemParameters.VirtualScreenWidth;
+                var desktopHeight = SystemParameters.VirtualScreenHeight;
+                var v_center = desktopHeight / 2;
+                var h_center = desktopWidth / 2;
+
+                if (this.Top < v_center)
+                {
+                    if (this.Top > (v_center - this.Top))
+                        this.Top = v_center;
+                }
+                else
+                {
+                    if ((desktopHeight - this.Top) > (this.Top - v_center))
+                        this.Top = v_center - this.Height / 2;
+                    else
+                        this.Top = desktopHeight - this.Height;
+                }
+
+                if (this.Left < h_center)
+                {
+                    if (this.Left > (h_center - this.Left))
+                        this.Left = h_center - this.Width / 2;
+                }
+                else
+                {
+                    if ((desktopWidth - this.Left) > (this.Left - h_center))
+                        this.Left = h_center - this.Width / 2;
+                    else
+                        this.Left = desktopWidth - this.Width;
+                }
+            }
             Properties.Settings.Default.window_pos = new Point(this.Left, this.Top);
         }
 

@@ -106,5 +106,29 @@ namespace desktop_clock.Properties {
                 this["clock_separator"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool move_snap {
+            get {
+                return ((bool)(this["move_snap"]));
+            }
+            set {
+                this["move_snap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int snap_pos {
+            get {
+                return ((int)(this["snap_pos"]));
+            }
+            set {
+                this["snap_pos"] = value;
+            }
+        }
     }
 }

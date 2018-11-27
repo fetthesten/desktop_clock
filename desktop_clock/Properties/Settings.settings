@@ -23,5 +23,11 @@
     <Setting Name="clock_separator" Type="System.Char" Scope="User">
       <Value Profile="(Default)">.</Value>
     </Setting>
+    <Setting Name="move_snap" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="snap_pos" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

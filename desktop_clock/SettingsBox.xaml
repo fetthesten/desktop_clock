@@ -19,8 +19,8 @@
         <Slider x:Name="slider_textsize" HorizontalAlignment="Left" Margin="62,207,0,0" VerticalAlignment="Top" Width="104" Minimum="12" Maximum="128" Value="24"/>
         <CheckBox x:Name="check_bold" Content="Bold" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="check_shadow" Content="Shadow" HorizontalAlignment="Left" Margin="220,210,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button_saveSettings" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Margin="0,341,0,0" Height="79" FontSize="36" Background="#FF72C77E" Foreground="White"/>
-        
+        <Button x:Name="button_saveSettings" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Margin="0,365,0,0" Height="55" FontSize="36" Background="#FF72C77E" Foreground="White"/>
+
         <Label x:Name="label" Content="Color" HorizontalAlignment="Left" Margin="65,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.301,-0.336"/>
         <Canvas x:Name="img_colorpreview" HorizontalAlignment="Left" Height="50" Margin="10,235,0,0" VerticalAlignment="Top" Width="50" Background="Black"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="10,235,0,0" VerticalAlignment="Top" Width="50"/>
@@ -39,5 +39,6 @@
         <Slider x:Name="slider_blue" HorizontalAlignment="Left" Margin="107,313,0,0" VerticalAlignment="Top" Width="59" Maximum="255"/>
         <TextBox x:Name="tx_blue" HorizontalAlignment="Left" Height="23" Margin="171,313,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="44"/>
         <Label x:Name="label2_Copy1" Content="Blue" HorizontalAlignment="Left" Margin="69,310,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="check_movesnap" Content="Move Snap" HorizontalAlignment="Left" Margin="107,341,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,-0.267" Width="116" Height="31"/>
     </Grid>
 </Window>
