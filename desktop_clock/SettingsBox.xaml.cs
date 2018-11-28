@@ -144,8 +144,10 @@ namespace desktop_clock
             Properties.Settings.Default.clock_separator = sep_string[0];
             Properties.Settings.Default.font_color = color[0].ToString() + "," + color[1].ToString() + "," + color[2].ToString();
             Properties.Settings.Default.move_snap = (bool)check_movesnap.IsChecked;
+            Properties.Settings.Default.window_pos = new System.Windows.Point(mainWin.Left, mainWin.Top);
 
             mainWin.LoadSettings();
+            Properties.Settings.Default.Save();
             this.Close();
         }
 

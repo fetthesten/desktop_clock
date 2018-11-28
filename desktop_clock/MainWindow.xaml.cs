@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.Configuration;
-using System.Collections.Generic;
 
 using System.Threading;
 
@@ -87,19 +85,17 @@ namespace desktop_clock
             this.Top = Properties.Settings.Default.window_pos.Y;
 
             l_ClockDisplay.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            Size s = l_ClockDisplay.DesiredSize;
+            
+            this.Width = l_ClockDisplay.DesiredSize.Width;
+            this.Height = l_ClockDisplay.DesiredSize.Height;
 
-            this.Width = s.Width;
-            this.Height = s.Height;
 
-            Console.WriteLine(this.Width.ToString() + "w" + l_ClockDisplay.ActualWidth.ToString());
-            Console.WriteLine(this.Height.ToString() + "h" + l_ClockDisplay.ActualHeight.ToString());
         }
 
         private void SetWindowPos(object sender, MouseButtonEventArgs e)
         {
             if (Properties.Settings.Default.move_snap)
-            {   
+            {
                 var desktopWidth = SystemParameters.VirtualScreenWidth;
                 var desktopHeight = SystemParameters.VirtualScreenHeight;
                 var v_center = desktopHeight / 2;
@@ -146,6 +142,7 @@ namespace desktop_clock
 
         private void UpdateClock(object sender, System.Timers.ElapsedEventArgs e)
         {
+            SetWindowPos(this, null);
             Dispatcher.BeginInvoke(new ThreadStart(() => l_ClockDisplay.Content = DateTime.Now.ToString("HH" + Properties.Settings.Default.clock_separator +  "mm")));
         }
     }
