@@ -62,6 +62,7 @@ namespace desktop_clock
             l_textsizelabel.Content = "Size: " + Properties.Settings.Default.font_size.ToString();
             check_bold.IsChecked = Properties.Settings.Default.font_bold;
             check_shadow.IsChecked = Properties.Settings.Default.font_shadow;
+            check_movesnap.IsChecked = Properties.Settings.Default.move_snap;
             int i = 0;
             foreach (ListBoxItem item in combo_separator.Items)
             {

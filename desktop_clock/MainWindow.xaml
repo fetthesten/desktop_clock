@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:desktop_clock"
         mc:Ignorable="d"
-        Title="clockk" Height="200" Width="400" MinWidth="400" MinHeight="200" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Background="Transparent">
+        Title="clockk" Height="200" Width="400" MinWidth="32" MinHeight="32" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Background="Transparent">
     <Window.Effect>
         <DropShadowEffect Opacity="0.8" RenderingBias="Quality"/>
     </Window.Effect>
+    <!--
     <Grid OpacityMask="Black" Background="#00000000">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="14*"/>
-            <ColumnDefinition Width="83*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="l_ClockDisplay" Content=" " HorizontalAlignment="Left" Margin="28,19,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" OpacityMask="Black" FontFamily="Lato Light">
+    -->
+        <Label x:Name="l_ClockDisplay" Content=" " HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="0" Foreground="White" OpacityMask="Black" FontFamily="Lato Light">
             <Label.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Settings" Click="ShowSettingsBox"/>
@@ -25,5 +25,5 @@
             </Label.ContextMenu>
         </Label>
 
-    </Grid>
+    <!--/Grid-->
 </Window>

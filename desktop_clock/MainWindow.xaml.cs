@@ -13,6 +13,7 @@ namespace desktop_clock
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         enum Snap_Pos { Top_Left, Top_Center, Top_Right, Center_Right, Bottom_Right, Bottom_Center, Bottom_Left, Center_Left };
 
         const string STR_NULL = "";
@@ -22,6 +23,8 @@ namespace desktop_clock
         public MainWindow()
         {
             InitializeComponent();
+
+            l_ClockDisplay.Content = DateTime.Now.ToString("HH" + Properties.Settings.Default.clock_separator + "mm");
 
             LoadSettings();
 
@@ -83,8 +86,14 @@ namespace desktop_clock
             this.Left = Properties.Settings.Default.window_pos.X;
             this.Top = Properties.Settings.Default.window_pos.Y;
 
-            this.Width = l_ClockDisplay.ActualWidth;
-            this.Height = l_ClockDisplay.ActualHeight;
+            l_ClockDisplay.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            Size s = l_ClockDisplay.DesiredSize;
+
+            this.Width = s.Width;
+            this.Height = s.Height;
+
+            Console.WriteLine(this.Width.ToString() + "w" + l_ClockDisplay.ActualWidth.ToString());
+            Console.WriteLine(this.Height.ToString() + "h" + l_ClockDisplay.ActualHeight.ToString());
         }
 
         private void SetWindowPos(object sender, MouseButtonEventArgs e)
@@ -100,6 +109,8 @@ namespace desktop_clock
                 {
                     if (this.Top > (v_center - this.Top))
                         this.Top = v_center;
+                    else
+                        this.Top = 0;
                 }
                 else
                 {
@@ -113,6 +124,8 @@ namespace desktop_clock
                 {
                     if (this.Left > (h_center - this.Left))
                         this.Left = h_center - this.Width / 2;
+                    else
+                        this.Left = 0;
                 }
                 else
                 {
